@@ -1,33 +1,34 @@
-# Gorev Takip Sistemi
+# Görev Takip Sistemi
 
-Bu proje, bulut bilisim dersi icin hazirlanmis iki katmanli bir gorev takip uygulamasidir. Sistem; gorev ekleme, listeleme, guncelleme, silme ve tamamlanma durumunu degistirme islemlerini destekler. Backend tarafinda Express REST API, verilerin kalici tutulmasi icin SQLite veritabani; frontend tarafinda ise React ve Vite kullanilmistir.
+Bu proje, Bulut Bilişim dersi için hazırlanmış iki katmanlı bir görev takip uygulamasıdır. Sistem; görev ekleme, listeleme, güncelleme, silme ve tamamlanma durumunu değiştirme işlemlerini destekler. Backend tarafında Express REST API, verilerin kalıcı tutulması için SQLite veritabanı; frontend tarafında ise React ve Vite kullanılmıştır.
 
-## Proje Amaci
+## Proje Amacı
 
-Bu uygulamanin amaci, temel bir full stack web uygulamasinin nasil kuruldugunu ogrenci seviyesinde anlasilir bir yapiyla gostermektir. Projede istemci-sunucu haberlesmesi, REST API mantigi, veritabani kullanimi ve React ile arayuz gelistirme birlikte ele alinmistir.
+Bu uygulamanın amacı, temel bir full stack web uygulamasının nasıl kurulduğunu öğrenci seviyesinde anlaşılır bir yapıyla göstermektir. Projede istemci-sunucu haberleşmesi, REST API mantığı, veritabanı kullanımı ve React ile arayüz geliştirme birlikte ele alınmıştır.
 
-## Kullanilan Teknolojiler
+## Kullanılan Teknolojiler
 
-- Node.js
-- Express.js
-- SQLite
-- React
-- Vite
-- CORS
-- JSON middleware
+* Node.js
+* Express.js
+* SQLite
+* React
+* Vite
+* CORS
+* JSON middleware
+* AWS (EC2, S3)
 
-## Temel Ozellikler
+## Temel Özellikler
 
-- Gorevleri listeleme
-- Yeni gorev ekleme
-- Gorev duzenleme
-- Gorev silme
-- Gorevi tamamlandi veya tamamlanmadi olarak isaretleme
-- Bos veya cok kisa gorev girisini engelleyen form dogrulamasi
-- Basari, bilgi ve hata mesajlari gosterme
-- Daha duzenli kod yapisi icin component tabanli frontend mimarisi
+* Görevleri listeleme
+* Yeni görev ekleme
+* Görev düzenleme
+* Görev silme
+* Görevi tamamlandı / tamamlanmadı olarak işaretleme
+* Boş veya çok kısa görev girişini engelleyen form doğrulaması
+* Başarı, bilgi ve hata mesajları gösterme
+* Component tabanlı frontend mimarisi
 
-## Klasor Yapisi
+## Klasör Yapısı
 
 ```text
 BULUT/
@@ -53,128 +54,133 @@ BULUT/
 └─ README.md
 ```
 
-## Backend Detaylari
+## Backend Detayları
 
-Backend klasoru icinde Node.js ve Express ile bir REST API bulunur. Uygulama acildiginda `tasks.db` adli SQLite veritabani dosyasi otomatik olusur ve `tasks` tablosu hazirlanir.
+Backend klasörü içinde Node.js ve Express ile bir REST API bulunmaktadır. Uygulama açıldığında `tasks.db` adlı SQLite veritabanı dosyası otomatik oluşturulur ve `tasks` tablosu hazırlanır.
 
-`tasks` tablosunda su alanlar bulunur:
+### Veritabanı Alanları
 
-- `id`: Otomatik artan benzersiz gorev kimligi
-- `title`: Gorev basligi
-- `completed`: Gorevin tamamlanma durumu
-- `created_at`: Gorevin olusturulma tarihi
+* `id`: Otomatik artan görev kimliği
+* `title`: Görev başlığı
+* `completed`: Tamamlanma durumu
+* `created_at`: Oluşturulma tarihi
 
 ### API Endpointleri
 
-- `GET /tasks`: Tum gorevleri listeler
-- `POST /tasks`: Yeni gorev ekler
-- `PUT /tasks/:id`: Mevcut gorevi gunceller
-- `DELETE /tasks/:id`: Gorevi siler
+* `GET /tasks` → Tüm görevleri listeler
+* `POST /tasks` → Yeni görev ekler
+* `PUT /tasks/:id` → Görev günceller
+* `DELETE /tasks/:id` → Görev siler
 
-## Frontend Detaylari
+## Frontend Detayları
 
-Frontend klasoru icinde React ve Vite kullanilarak hazirlanmis arayuz bulunur. Arayuzde:
+Frontend klasörü içinde React ve Vite kullanılarak hazırlanmış arayüz bulunmaktadır.
 
-- Yeni gorev ekleme formu
-- Gorev listesi
-- Tamamlandi durumu icin checkbox
-- Duzenleme ve silme butonlari
-- Duruma gore basari ve hata bildirimleri
-- Mobil ekranda da duzgun gorunen responsive tasarim
+Arayüz özellikleri:
 
-## Kurulum Adimlari
+* Görev ekleme formu
+* Görev listesi
+* Tamamlanma checkbox
+* Düzenleme ve silme işlemleri
+* Başarı ve hata mesajları
+* Responsive (mobil uyumlu) tasarım
 
-Asagidaki adimlar `cmd` terminal icin uygundur:
+## Kurulum Adımları
 
-### 1. Backend bagimliliklarini kurun
+### Backend
 
-```cmd
-cd C:\Users\Asus\Desktop\BULUT\backend
+```bash
+cd backend
 npm install
 ```
 
-### 2. Frontend bagimliliklarini kurun
+### Frontend
 
-```cmd
-cd C:\Users\Asus\Desktop\BULUT\frontend
+```bash
+cd frontend
 npm install
 ```
 
-## Calistirma Adimlari
+## Çalıştırma
 
-### 1. Backend sunucusunu baslatin
+### Backend
 
-```cmd
-cd C:\Users\Asus\Desktop\BULUT\backend
+```bash
+cd backend
 npm start
 ```
 
-Backend varsayilan olarak `http://localhost:5000` adresinde calisir.
+Backend varsayılan olarak şu adreste çalışır:
 
-### 2. Frontend gelistirme sunucusunu baslatin
+```text
+http://localhost:5000
+```
 
-Yeni bir `cmd` penceresi acin ve su komutlari calistirin:
+### Frontend
 
-```cmd
-cd C:\Users\Asus\Desktop\BULUT\frontend
+```bash
+cd frontend
 npm run dev
 ```
 
-Frontend varsayilan olarak `http://localhost:5173` adresinde calisir.
-
-### 3. Uygulamayi tarayicida acin
-
-Tarayicidan su adrese gidin:
+Frontend şu adreste çalışır:
 
 ```text
 http://localhost:5173
 ```
 
-## Ornek Kullanim Senaryosu
+---
 
-1. Uygulamayi acin.
-2. "Yeni Gorev Ekle" alanina bir gorev yazin.
-3. `Gorev Ekle` butonuna basin.
-4. Eklenen gorevi listede gorun.
-5. Gorevi duzenlemek icin `Duzenle` butonunu kullanin.
-6. Gorevi tamamlamak icin checkbox isaretleyin.
-7. Gerekiyorsa `Sil` butonu ile gorevi kaldirin.
+# AWS Üzerinde Deployment
 
-## Notlar
+Bu proje AWS kullanılarak iki katmanlı mimari ile deploy edilmiştir.
 
-- Backend calistiginda SQLite veritabani dosyasi backend klasoru icinde olusur.
-- Frontend, API isteklerini `http://localhost:5000/tasks` adresine gonderir.
-- Eger backend calismiyorsa frontend tarafinda hata mesaji gorunur.
-- Hem frontend hem backend ayni anda acik olmadan uygulama tam olarak calismaz.
+## Backend (EC2)
 
-## Deploy Oncesi Ortam Degiskenleri
+* Ubuntu tabanlı EC2 instance kullanılmıştır
+* Proje GitHub üzerinden clone edilmiştir
+* Node.js kurulumu yapılmıştır
+* Backend, PM2 kullanılarak sürekli çalışır hale getirilmiştir
 
-AWS veya benzeri bir sunucuya cikmadan once uygulamanin ortam degiskenleri ile calismasi gerekir.
+Çalıştırma komutu:
 
-### Backend
-
-`backend/.env.example` dosyasini temel alin:
-
-```text
-PORT=5000
-CLIENT_ORIGIN=http://localhost:5173
+```bash
+pm2 start server.js --name "Han's TM"
 ```
 
-- `PORT`: Sunucunun dinleyecegi port
-- `CLIENT_ORIGIN`: CORS icin izin verilecek frontend adresi
+## Frontend (S3)
 
-### Frontend
+* React uygulaması production build alınmıştır:
 
-`frontend/.env.example` dosyasini temel alin:
-
-```text
-VITE_API_BASE_URL=http://localhost:5000
+```bash
+npm run build
 ```
 
-- `VITE_API_BASE_URL`: Frontend'in baglanacagi backend adresi
+* Oluşan `dist` klasörü S3 bucket içine yüklenmiştir
+* Static website hosting aktif edilmiştir
 
-Ornek production degeri:
+## Frontend - Backend Bağlantısı
+
+Frontend tarafında:
 
 ```text
-VITE_API_BASE_URL=http://EC2_PUBLIC_IP:5000
+VITE_API_BASE_URL=http://51.21.218.27:5000
 ```
+
+Backend tarafında:
+
+```text
+CLIENT_ORIGIN=http://to-do_frontend.s3-website.eu-north-1.amazonaws.com
+```
+
+## Sistem Mimarisi
+
+```text
+S3 (Frontend) → HTTP → EC2 (Backend) → SQLite (Veritabanı)
+```
+
+## Sonuç
+
+* Frontend ve backend başarıyla entegre edilmiştir
+* AWS üzerinde çalışır hale getirilmiştir
+* Tüm CRUD işlemleri sorunsuz şekilde gerçekleştirilmektedir

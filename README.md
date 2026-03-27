@@ -170,7 +170,7 @@ VITE_API_BASE_URL=http://51.21.218.27:5000
 Backend tarafında:
 
 ```text
-CLIENT_ORIGIN=http://to-do_frontend.s3-website.eu-north-1.amazonaws.com
+CLIENT_ORIGIN=http://to-do.frontend.s3-website.eu-north-1.amazonaws.com
 ```
 
 ## Sistem Mimarisi

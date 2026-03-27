@@ -9,12 +9,12 @@ function TaskItem({ task, onDeleteTask, onUpdateTask }) {
     const trimmedTitle = editingTitle.trim();
 
     if (!trimmedTitle) {
-      setFieldError("Bos gorev kaydedilemez.");
+      setFieldError("Bo\u015f g\u00f6rev kaydedilemez.");
       return;
     }
 
     if (trimmedTitle.length < 3) {
-      setFieldError("Gorev basligi en az 3 karakter olmali.");
+      setFieldError("G\u00f6rev ba\u015fl\u0131\u011f\u0131 en az 3 karakter olmal\u0131.");
       return;
     }
 
@@ -46,7 +46,7 @@ function TaskItem({ task, onDeleteTask, onUpdateTask }) {
 
         <div className="task-item-meta">
           <span className={`badge ${task.completed ? "done" : "progress"}`}>
-            {task.completed ? "Done" : "In progress"}
+            {task.completed ? "Tamamland\u0131" : "Devam ediyor"}
           </span>
           <small>{new Date(task.created_at).toLocaleString("tr-TR")}</small>
         </div>
@@ -56,7 +56,7 @@ function TaskItem({ task, onDeleteTask, onUpdateTask }) {
         {isEditing ? (
           <div className="edit-area">
             <label className="field-label" htmlFor={`edit-task-${task.id}`}>
-              Gorevi duzenle
+              {"G\u00f6revi d\u00fczenle"}
             </label>
             <input
               id={`edit-task-${task.id}`}
@@ -71,7 +71,7 @@ function TaskItem({ task, onDeleteTask, onUpdateTask }) {
             <div className="task-title-row">
               <h3 className={task.completed ? "completed" : ""}>{task.title}</h3>
             </div>
-            <p className="task-caption">{task.completed ? "Tamamlanan is" : "Acik is"}</p>
+            <p className="task-caption">{task.completed ? "Tamamlanan i\u015f" : "A\u00e7\u0131k i\u015f"}</p>
           </>
         )}
       </div>
@@ -83,7 +83,7 @@ function TaskItem({ task, onDeleteTask, onUpdateTask }) {
               Kaydet
             </button>
             <button type="button" className="ghost" onClick={handleCancel}>
-              Vazgec
+              {"Vazge\u00e7"}
             </button>
           </>
         ) : (
@@ -97,7 +97,7 @@ function TaskItem({ task, onDeleteTask, onUpdateTask }) {
                 setIsEditing(true);
               }}
             >
-              Duzenle
+              {"D\u00fczenle"}
             </button>
             <button type="button" className="danger" onClick={() => onDeleteTask(task.id)}>
               Sil

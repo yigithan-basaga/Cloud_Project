@@ -13,7 +13,7 @@ async function parseResponse(response, defaultMessage) {
 
 export async function fetchTasks() {
   const response = await fetch(API_URL);
-  return parseResponse(response, "Gorevler alinamadi.");
+  return parseResponse(response, "G\u00f6revler al\u0131namad\u0131.");
 }
 
 export async function createTask(title) {
@@ -25,7 +25,7 @@ export async function createTask(title) {
     body: JSON.stringify({ title }),
   });
 
-  return parseResponse(response, "Gorev eklenemedi.");
+  return parseResponse(response, "G\u00f6rev eklenemedi.");
 }
 
 export async function updateTaskById(id, title, completed) {
@@ -37,7 +37,7 @@ export async function updateTaskById(id, title, completed) {
     body: JSON.stringify({ title, completed }),
   });
 
-  return parseResponse(response, "Gorev guncellenemedi.");
+  return parseResponse(response, "G\u00f6rev g\u00fcncellenemedi.");
 }
 
 export async function deleteTaskById(id) {
@@ -45,5 +45,5 @@ export async function deleteTaskById(id) {
     method: "DELETE",
   });
 
-  return parseResponse(response, "Gorev silinemedi.");
+  return parseResponse(response, "G\u00f6rev silinemedi.");
 }

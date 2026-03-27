@@ -6,6 +6,7 @@ import StatusMessage from "./components/StatusMessage";
 import { createTask, deleteTaskById, fetchTasks, updateTaskById } from "./services/taskService";
 
 const FILTER_OPTIONS = ["all", "active", "completed"];
+
 function App() {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -43,7 +44,7 @@ function App() {
       clearMessage();
       const createdTask = await createTask(title);
       setTasks((currentTasks) => [createdTask, ...currentTasks]);
-      showMessage("success", "Gorev basariyla eklendi.");
+      showMessage("success", "G\u00f6rev ba\u015far\u0131yla eklendi.");
       return true;
     } catch (error) {
       showMessage("error", error.message);
@@ -56,7 +57,7 @@ function App() {
       clearMessage();
       await deleteTaskById(id);
       setTasks((currentTasks) => currentTasks.filter((task) => task.id !== id));
-      showMessage("success", "Gorev silindi.");
+      showMessage("success", "G\u00f6rev silindi.");
     } catch (error) {
       showMessage("error", error.message);
     }
@@ -69,7 +70,7 @@ function App() {
       setTasks((currentTasks) =>
         currentTasks.map((task) => (task.id === id ? updatedTask : task))
       );
-      showMessage("success", "Gorev guncellendi.");
+      showMessage("success", "G\u00f6rev g\u00fcncellendi.");
       return true;
     } catch (error) {
       showMessage("error", error.message);
@@ -90,6 +91,7 @@ function App() {
 
     return matchesSearch && matchesFilter;
   });
+
   return (
     <div className="page-shell">
       <main className="app-shell">
@@ -114,10 +116,10 @@ function App() {
             <section className="panel panel-loading">
               <div className="panel-heading">
                 <span className="panel-kicker">Workspace</span>
-                <h2>Calisma alani yukleniyor</h2>
-                <p>Gorevleriniz premium pano uzerine yerlestiriliyor.</p>
+                <h2>{"\u00c7al\u0131\u015fma alan\u0131 y\u00fckleniyor"}</h2>
+                <p>{"G\u00f6revleriniz premium pano \u00fczerine yerle\u015ftiriliyor."}</p>
               </div>
-              <StatusMessage type="info" text="Gorevler yukleniyor..." />
+              <StatusMessage type="info" text={"G\u00f6revler y\u00fckleniyor..."} />
             </section>
           ) : (
             <TaskList

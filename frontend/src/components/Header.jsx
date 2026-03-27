@@ -21,14 +21,14 @@ function Header({
 
       <div className="hero">
         <div className="hero-copy">
-          <h1>Zinciri Kırma</h1>
+          <h1>{"Zinciri K\u0131rma"}</h1>
           <p className="hero-text">
-            Oncelikleri tek bakista gor, hizli karar ver ve listeyi dagilmadan yonet.
+            {"\u00d6ncelikleri tek bak\u0131\u015fta g\u00f6r, h\u0131zl\u0131 karar ver ve listeyi da\u011f\u0131lmadan y\u00f6net."}
           </p>
 
           <div className="hero-inline-metrics">
             <div className="inline-metric">
-              <span>Tamamlama orani</span>
+              <span>{"Tamamlama oran\u0131"}</span>
               <strong>%{completionRate}</strong>
             </div>
           </div>
@@ -74,7 +74,7 @@ function Header({
 
           <div className="stats-grid">
             <div className="stat-box">
-              <span className="stat-label">Toplam Görev</span>
+              <span className="stat-label">{"Toplam G\u00f6rev"}</span>
               <strong>{totalCount}</strong>
             </div>
             <div className="stat-box">
@@ -94,13 +94,13 @@ function Header({
           <span>Ara</span>
           <input
             type="search"
-            placeholder="Gorev basligi icinde ara"
+            placeholder={"G\u00f6rev ba\u015fl\u0131\u011f\u0131 i\u00e7inde ara"}
             value={searchQuery}
             onChange={(event) => onSearchChange(event.target.value)}
           />
         </label>
 
-        <div className="segmented-control" role="tablist" aria-label="Gorev filtreleri">
+        <div className="segmented-control" role="tablist" aria-label={"G\u00f6rev filtreleri"}>
           {filterOptions.map((option) => (
             <button
               key={option}
@@ -108,7 +108,7 @@ function Header({
               className={statusFilter === option ? "segment is-active" : "segment"}
               onClick={() => onStatusFilterChange(option)}
             >
-              {option === "all" ? "Tum Gorevler" : option === "active" ? "Aktifler" : "Tamamlananlar"}
+              {option === "all" ? "T\u00fcm G\u00f6revler" : option === "active" ? "Aktifler" : "Tamamlananlar"}
             </button>
           ))}
         </div>
